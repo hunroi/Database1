@@ -1,2 +1,2 @@
 # Database1
-Javascript with database
+Javascript with Mysql database
