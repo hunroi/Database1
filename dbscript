@@ -1,0 +1,79 @@
+const mysql = require('mysql2');
+
+// Create a connection to the MySQL database
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'your_username',
+  password: 'your_password',
+  database: 'your_database_name',
+});
+
+// Connect to the database
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to the database:', err);
+    return;
+  }
+  console.log('Connected to the database!');
+  
+  // Call functions for database manipulation here
+  createData();
+  readData();
+  updateData();
+  deleteData();
+});
+
+// Function to create data in the database
+function createData() {
+  const newUser = { name: 'John Doe', email: 'john@example.com', age: 30 };
+  connection.query('INSERT INTO users SET ?', newUser, (err, results) => {
+    if (err) {
+      console.error('Error creating data:', err);
+      return;
+    }
+    console.log('New user created:', results.insertId);
+  });
+}
+
+// Function to read data from the database
+function readData() {
+  connection.query('SELECT * FROM users', (err, results) => {
+    if (err) {
+      console.error('Error reading data:', err);
+      return;
+    }
+    console.log('All data:', results);
+  });
+}
+
+// Function to update data in the database
+function updateData() {
+  const updatedUser = { age: 35 };
+  connection.query('UPDATE users SET ? WHERE name = ?', [updatedUser, 'John Doe'], (err, results) => {
+    if (err) {
+      console.error('Error updating data:', err);
+      return;
+    }
+    console.log('Data updated:', results.affectedRows);
+  });
+}
+
+// Function to delete data from the database
+function deleteData() {
+  connection.query('DELETE FROM users WHERE name = ?', ['John Doe'], (err, results) => {
+    if (err) {
+      console.error('Error deleting data:', err);
+      return;
+    }
+    console.log('Data deleted:', results.affectedRows);
+  });
+}
+
+// Close the connection when done
+connection.end((err) => {
+  if (err) {
+    console.error('Error closing the connection:', err);
+    return;
+  }
+  console.log('Connection closed.');
+});
