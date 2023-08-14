@@ -60,7 +60,8 @@ function updateData() {
 
 // Function to delete data from the database
 function deleteData() {
-  connection.query('DELETE FROM users WHERE name = ?', ['John Doe'], (err, results) => {
+//  connection.query('DELETE FROM users WHERE name = ?', ['John Doe'], (err, results) => {
+  connection.query('DELETE FROM users WHERE name = ?', ['John Doe2'], (err, results) => {
     if (err) {
       console.error('Error deleting data:', err);
       return;
