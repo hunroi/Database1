@@ -19,9 +19,8 @@ connection.connect((err) => {
   // Call functions for database manipulation here
   createData();
   readData();
-  deleteData(); //added
   updateData();
-  // deleteData();
+  deleteData();
 
 });
 
