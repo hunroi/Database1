@@ -27,7 +27,7 @@ connection.connect((err) => {
 
 // Function to create data in the database
 function createData() {
-  const newUser = { name: 'John Doedoe', email: 'janetdoe@example.com', age: 99 };
+  const newUser = { name: 'John Doedoe', email: 'janetdoe@example.com', age: 199 };
   connection.query('INSERT INTO users SET ?', newUser, (err, results) => {
     if (err) {
       console.error('Error creating data:', err);
