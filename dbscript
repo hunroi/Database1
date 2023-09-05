@@ -21,7 +21,8 @@ connection.connect((err) => {
   readData();
   updateData();
   deleteData();
-
+  createData();
+  
 });
 
 // Function to create data in the database
