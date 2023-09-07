@@ -22,7 +22,7 @@ connection.connect((err) => {
   updateData();
   deleteData();
   createData();
-  
+  updateData();
 });
 
 // Function to create data in the database
