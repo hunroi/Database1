@@ -27,7 +27,7 @@ connection.connect((err) => {
 
 // Function to create data in the database
 function createData() {
-  const newUser = { name: 'John Doedoe', email: 'janetdoe@example.com', age: 199 };
+  const newUser = { name: 'John Doedoe', email: 'janetdoe@example.com', age: 20 };
   connection.query('INSERT INTO users SET ?', newUser, (err, results) => {
     if (err) {
       console.error('Error creating data:', err);
@@ -50,7 +50,7 @@ function readData() {
 
 // Function to update data in the database
 function updateData() {
-  const updatedUser = { age: 35 };
+  const updatedUser = { age: 351 };
   connection.query('UPDATE users SET ? WHERE name = ?', [updatedUser, 'John Doe'], (err, results) => {
     if (err) {
       console.error('Error updating data:', err);
